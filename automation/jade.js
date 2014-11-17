@@ -17,6 +17,7 @@ module.exports = function(grunt) {
 		}
 	});
 
+	// Watch our jade files
 	grunt.config('watch.jade', {
 		files: ['*.jade'],
 		tasks: ['jade:compile'],

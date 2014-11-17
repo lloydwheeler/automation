@@ -12,6 +12,7 @@ module.exports = function(grunt) {
 		build: []
 	}
 
+
 	files.forEach(function(filename) {
 		var registerFn = require('./' + path.join('automation', filename));
 		var newTasks = registerFn(grunt);
@@ -21,12 +22,7 @@ module.exports = function(grunt) {
 
 		if (newTasks.build)
 			tasks.build = tasks.build.concat(newTasks.build)
-
-		console.log(newTasks);
-
 	});
-
-
 
 
 	// Register compile tasks
@@ -36,5 +32,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('buildTasks', tasks.build);
 
 	// Register default tasks
-	grunt.registerTask('default', ['compileTasks', 'watch']);
+	grunt.registerTask('default', ['compileTasks', 'watch', 'http-server:dev']);
 };
