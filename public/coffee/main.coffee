@@ -1,6 +1,7 @@
 class MainClass
 	
 	constructor: ->
-		console.log "test"
+		one = 3;
+		alert one
 
 myClass = new MainClass()

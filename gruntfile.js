@@ -34,5 +34,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('buildTasks', tasks.build);
 
 	// Register default tasks
-	grunt.registerTask('default', ['compileTasks', 'buildTasks', 'watch']);
+	grunt.registerTask('default', ['compileTasks', 'watch']);
 };

@@ -1,7 +1,7 @@
 {
-  "name": "brian-the-robot",
+  "name": "automation",
   "version": "0.0.1",
-  "description": "Brian the Robot",
+  "description": "automation",
   "author": "Lloyd Wheeler",
   "devDependencies": {
     "grunt": "^0.4.5",
