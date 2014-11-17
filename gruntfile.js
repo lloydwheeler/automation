@@ -22,6 +22,8 @@ module.exports = function(grunt) {
 		if (newTasks.build)
 			tasks.build = tasks.build.concat(newTasks.build)
 
+		console.log(newTasks);
+
 	});
 
 

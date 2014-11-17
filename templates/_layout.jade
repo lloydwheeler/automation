@@ -1,0 +1,21 @@
+doctype
+html
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		title="Honeywelll Products &amp; Services"
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+
+		block css
+			link(rel='stylesheet', href='assets/css/vendor.css')
+			link(rel='stylesheet', href='assets/css/style.css')
+
+	- var bodyClasses = [];
+	block beforeBody
+
+	body(class=bodyClasses)
+		block content
+
+		block js
+			script(data-main='main', src='assets/js/app.js')
