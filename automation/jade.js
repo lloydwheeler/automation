@@ -3,18 +3,18 @@ module.exports = function(grunt) {
 	// Compile our Sass files
 	grunt.config('jade', {
 		compile: {
-	    options: {
-	      data: {
-	        debug: false
-	      }
-	    },
-	    files: [{
-	    	expand: true,
-        src: ['*.jade'],
-        dest: '.tmp/html',
-        ext: '.html'
-      }]
-	  }
+			options: {
+				data: {
+					debug: false
+				}
+			},
+			files: [{
+				expand: true,
+				src: ['*.jade'],
+				dest: '.tmp/html',
+				ext: '.html'
+			}]
+		}
 	});
 
 	grunt.config('watch.jade', {
