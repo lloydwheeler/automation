@@ -4,6 +4,10 @@ var fs = require('fs'),
 
 module.exports = function(grunt) {
 
+	grunt.config('clean.scripts', [
+		'.tmp/js'
+	]);
+
 	// Compile our coffeescript files
 	grunt.config('coffee', {
 		compile: {
@@ -18,8 +22,9 @@ module.exports = function(grunt) {
 	grunt.config('requirejs', {
 		compile: {
 			options: {
-				name: 'main',
 				baseUrl: '.tmp/js',
+				mainConfigFile: 'assets/js/config.js',
+
 				out: 'assets/js/app.js',
 				optimize: 'none',
 				generateSourceMaps: false
@@ -28,18 +33,15 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('generateIncludes', 'Handles requirejs includes.', function () {
-		var files = walk('.tmp/js/components', '.tmp/js/components');
+		var files = walk('.tmp/js/component', '.tmp/js/component');
 		var includes = [];
 
 		files.forEach(function (file) {
 			if (path.extname(file) !== '.js')
 				return;
 
-			console.log(path.dirname(file));
-			console.log(path.basename(file, '.js'));
-			console.log(file);
+			var module = path.dirname(file) + '/component/' + path.basename(file, '.js');
 
-			var module = path.dirname(file) + '/components/' + path.basename(file, '.js');
 			includes.push(module);
 		});
 
@@ -55,7 +57,7 @@ module.exports = function(grunt) {
 	// Watch coffeescript files
 	grunt.config('watch.coffee', {
 		files: ['assets/coffee/**/*.coffee'],
-		tasks: ['coffee:compile', 'generateIncludes', 'requirejs:compile'],
+		tasks: ['clean:scripts', 'coffee:compile', 'generateIncludes', 'requirejs:compile'],
 		options: {
 			livereload: true
 		}
@@ -63,7 +65,7 @@ module.exports = function(grunt) {
 
 	// Return our task
 	return {
-		compile: ['coffee:compile', 'generateIncludes', 'requirejs:compile']
+		compile: ['clean:scripts', 'coffee:compile', 'generateIncludes', 'requirejs:compile']
 	}
 }
 
