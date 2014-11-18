@@ -5,9 +5,9 @@ module.exports = function(grunt) {
 		compile: {
 			options: {
 				data: {
-					debug: false,
-					pretty: true
-				}
+					debug: false
+				},
+				pretty: true
 			},
 			files: [{
 				cwd: './templates/',

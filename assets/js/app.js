@@ -35,6 +35,7 @@
     function MainClass() {
       var one;
       one = 3;
+      alert(2);
     }
 
     return MainClass;

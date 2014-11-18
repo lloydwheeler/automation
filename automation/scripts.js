@@ -12,17 +12,15 @@ module.exports = function(grunt) {
 	});
 
 	// Concat our JS files
-	grunt.config('concat', {
-		dist: {
-			src: ['.tmp/js/**/*.js'],
-			dest: 'assets/js/app.js'
-		}
+	grunt.config('concat.scripts', {
+		src: ['.tmp/js/**/*.js'],
+		dest: 'assets/js/app.js'
 	});
 
 	// Watch coffeescript files
 	grunt.config('watch.coffee', {
 		files: ['assets/coffee/**/*.coffee'],
-		tasks: ['coffee:compile', 'concat'],
+		tasks: ['coffee:compile', 'concat:scripts'],
 		options: {
 			livereload: true
 		}

@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 	// Load all grunt tasks, replaces need for individual grunt.loadNpmTasks('taskname')
 	require('load-grunt-tasks')(grunt);
 
+	// Run our local webserver
 	grunt.initConfig({
 		develop: {
 			server: {
