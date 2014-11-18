@@ -1,4 +1,7 @@
 .sass-cache
 node_modules
 .tmp
+
 assets/bower_components
+assets/js
+assets/css

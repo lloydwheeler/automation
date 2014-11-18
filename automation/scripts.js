@@ -1,3 +1,7 @@
+var fs = require('fs'),
+	path = require('path');
+
+
 module.exports = function(grunt) {
 
 	// Compile our coffeescript files
@@ -11,16 +15,47 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// Concat our JS files
-	grunt.config('concat.scripts', {
-		src: ['.tmp/js/**/*.js'],
-		dest: 'assets/js/app.js'
+	grunt.config('requirejs', {
+		compile: {
+			options: {
+				name: 'main',
+				baseUrl: '.tmp/js',
+				out: 'assets/js/app.js',
+				optimize: 'none',
+				generateSourceMaps: false
+			}
+		}
 	});
+
+	grunt.registerTask('generateIncludes', 'Handles requirejs includes.', function () {
+		var files = walk('.tmp/js/components', '.tmp/js/components');
+		var includes = [];
+
+		files.forEach(function (file) {
+			if (path.extname(file) !== '.js')
+				return;
+
+			console.log(path.dirname(file));
+			console.log(path.basename(file, '.js'));
+			console.log(file);
+
+			var module = path.dirname(file) + '/components/' + path.basename(file, '.js');
+			includes.push(module);
+		});
+
+		grunt.config('requirejs.compile.options.include', includes);
+	});
+
+	// Concat our JS files
+	// grunt.config('concat.scripts', {
+	// 	src: ['.tmp/js/**/*.js'],
+	// 	dest: 'assets/js/app.js'
+	// });
 
 	// Watch coffeescript files
 	grunt.config('watch.coffee', {
 		files: ['assets/coffee/**/*.coffee'],
-		tasks: ['coffee:compile', 'concat:scripts'],
+		tasks: ['coffee:compile', 'generateIncludes', 'requirejs:compile'],
 		options: {
 			livereload: true
 		}
@@ -28,6 +63,24 @@ module.exports = function(grunt) {
 
 	// Return our task
 	return {
-		compile: ['coffee:compile']
+		compile: ['coffee:compile', 'generateIncludes', 'requirejs:compile']
 	}
+}
+
+
+function walk(basedir, dir) {
+	var results = [];
+	var list = fs.readdirSync(dir);
+
+	list.forEach(function(file) {
+		file = dir + '/' + file;
+		var stat = fs.statSync(file);
+
+		if (stat && stat.isDirectory()) 
+			results = results.concat(walk(basedir, file));
+		else 
+			results.push(path.relative(basedir, file));
+	});
+
+	return results;
 }
