@@ -1,7 +1,6 @@
 class MainClass
 	
 	constructor: ->
-		one = 3;
-		alert one
+		one = 3
 
 myClass = new MainClass()
