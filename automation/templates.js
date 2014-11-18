@@ -10,6 +10,7 @@ module.exports = function(grunt) {
 				}
 			},
 			files: [{
+				cwd: './templates/',
 				expand: true,
 				src: ['*.jade'],
 				dest: '.tmp/html',
