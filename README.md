@@ -11,5 +11,5 @@
 `grunt build`
 
 
-### Editor config
-This project uses EditorConfig to help define and maintain consistent coding styles between different editors and IDEs. http://editorconfig.org/
+## Editor config
+This project uses EditorConfig to help define and maintain consistent coding styles between different editors and IDEs. http://editorconfig.org/git 
