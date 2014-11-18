@@ -12,7 +12,6 @@ module.exports = function(grunt) {
 		build: []
 	}
 
-
 	files.forEach(function(filename) {
 		var registerFn = require('./' + path.join('automation', filename));
 		var newTasks = registerFn(grunt);
@@ -23,7 +22,6 @@ module.exports = function(grunt) {
 		if (newTasks.build)
 			tasks.build = tasks.build.concat(newTasks.build)
 	});
-
 
 	// Register compile tasks
 	grunt.registerTask('compileTasks', tasks.compile);
