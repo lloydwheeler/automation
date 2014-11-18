@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	grunt.config('coffee', {
 		compile: {
 			expand: true,
-			cwd: 'public/coffee/',
+			cwd: 'assets/coffee/',
 			src: ['**/*.coffee'],
 			dest: '.tmp/js',
 			ext: '.js'
@@ -15,13 +15,13 @@ module.exports = function(grunt) {
 	grunt.config('concat', {
 		dist: {
 			src: ['.tmp/js/**/*.js'],
-			dest: 'public/js/app.js'
+			dest: 'assets/js/app.js'
 		}
 	});
 
 	// Watch coffeescript files
 	grunt.config('watch.coffee', {
-		files: ['public/coffee/**/*.coffee'],
+		files: ['assets/coffee/**/*.coffee'],
 		tasks: ['coffee:compile', 'concat'],
 		options: {
 			livereload: true

@@ -4,9 +4,9 @@ module.exports = function(grunt) {
 	grunt.config('sass', {
 		compile: {
 			expand: true,
-			cwd: 'public/scss',
+			cwd: 'assets/scss',
 			src: ['**/*.scss'],
-			dest: 'public/css',
+			dest: 'assets/css',
 			ext: '.css'
 		}
 	});
@@ -17,13 +17,13 @@ module.exports = function(grunt) {
 			options: {
 				browsers: ['last 5 versions', 'ie 8', 'ie 9']
 			},
-      src: 'public/css/style.css'
+      src: 'assets/css/style.css'
     }
 	})
 
 	// Watch our Sass files
-	grunt.config('watch.styles', {
-		files: ['public/scss/**/*.scss'],
+	grunt.config('watch.sass', {
+		files: ['assets/scss/**/*.scss'],
 		tasks: ['sass:compile', 'autoprefixer'],
 		options: {
 			livereload: true

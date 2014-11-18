@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-	// Compile our Sass files
+	// Compile our Jade templates
 	grunt.config('jade', {
 		compile: {
 			options: {
@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 
 	// Watch our jade files
 	grunt.config('watch.jade', {
-		files: ['*.jade'],
+		files: ['templates/**/*.jade'],
 		tasks: ['jade:compile'],
 		options: {
 			livereload: true

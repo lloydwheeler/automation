@@ -5,6 +5,15 @@ module.exports = function(grunt) {
 	// Load all grunt tasks, replaces need for individual grunt.loadNpmTasks('taskname')
 	require('load-grunt-tasks')(grunt);
 
+	grunt.initConfig({
+		develop: {
+			server: {
+				file: 'app.js',
+				env: { NODE_ENV: 'development'}
+			}
+		}
+	});
+
 	// Include automation files
 	var files = grunt.file.glob.sync('**/*.{js,coffee}', {cwd: 'automation'});
 	var tasks = {
@@ -30,5 +39,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('buildTasks', tasks.build);
 
 	// Register default tasks
-	grunt.registerTask('default', ['compileTasks', 'watch']);
+	grunt.registerTask('default', ['compileTasks', 'develop', 'watch']);
 };

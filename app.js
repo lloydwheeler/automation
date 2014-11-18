@@ -1,11 +1,12 @@
 var express = require('express'),
-		path = require('path')
-var app = express()
+		path = require('path'),
+		app = express();
 
+// Routes for html and assets
+app.use('/', express.static(path.join(__dirname, '/.tmp/html')));
+app.use('/', express.static(path.join(__dirname, '/')));
 
-// app.use(express.static(path.join(__dirname, '/.tmp/html')));
-app.use(express.static(path.join(__dirname, '/assets/css')));
-
+// Start the server
 var server = app.listen(3000, function () {
   var host = server.address().address
   var port = server.address().port
