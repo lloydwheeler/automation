@@ -1,10 +1,10 @@
 ## Automation
 
-### Initial run
-bower install
+#### Initial run
+`bower install`
 
-### Run the local development server which watches scripts, styles and templates
-grunt
+#### Run the local development server which watches scripts, styles and templates
+`grunt`
 
-### Generate static assets to `export` folder
-grunt build
+#### Generate static assets to `export` folder
+`grunt build`

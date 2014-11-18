@@ -1,3 +1,4 @@
+// Runs a local web server to host files
 var express = require('express'),
 		path = require('path'),
 		app = express();
