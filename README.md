@@ -1,7 +1,8 @@
+## Initial run
 bower install
 
-## Run dev server
+## Run the local development server which watches scripts, styles and templates
 grunt
 
-## Generate static assets
+## Generate static assets to `export` folder
 grunt build
