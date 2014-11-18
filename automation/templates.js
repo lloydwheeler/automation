@@ -1,5 +1,10 @@
 module.exports = function(grunt) {
 
+	// Cleans the .tmp html folder
+	grunt.config('clean.templates', [
+		'.tmp/html'
+	]);
+
 	// Compile our Jade templates
 	grunt.config('jade', {
 		compile: {
@@ -22,7 +27,7 @@ module.exports = function(grunt) {
 	// Watch our jade files
 	grunt.config('watch.jade', {
 		files: ['templates/**/*.jade'],
-		tasks: ['jade:compile'],
+		tasks: ['clean:templates', 'jade:compile'],
 		options: {
 			livereload: true
 		}

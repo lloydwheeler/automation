@@ -4,6 +4,7 @@ var fs = require('fs'),
 
 module.exports = function(grunt) {
 
+	// Cleans the .tmp js folder
 	grunt.config('clean.scripts', [
 		'.tmp/js'
 	]);
@@ -19,6 +20,7 @@ module.exports = function(grunt) {
 		}
 	});
 
+	// Generate require includes
 	grunt.config('requirejs', {
 		compile: {
 			options: {
@@ -48,11 +50,6 @@ module.exports = function(grunt) {
 		grunt.config('requirejs.compile.options.include', includes);
 	});
 
-	// Concat our JS files
-	// grunt.config('concat.scripts', {
-	// 	src: ['.tmp/js/**/*.js'],
-	// 	dest: 'assets/js/app.js'
-	// });
 
 	// Watch coffeescript files
 	grunt.config('watch.coffee', {
