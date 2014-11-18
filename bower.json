@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "almond": "~0.3.0",
-    "owl-carousel2": "*"
+    "almond": "~0.3.0"
   }
 }

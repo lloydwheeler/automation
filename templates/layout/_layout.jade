@@ -8,7 +8,6 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 
 		block css
-			link(rel='stylesheet', href='assets/css/vendor.css')
 			link(rel='stylesheet', href='assets/css/style.css')
 
 	- var bodyClasses = [];
@@ -18,4 +17,5 @@ html
 		block content
 
 		block js
+			script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
 			script(data-main='main', src='assets/js/app.js')

@@ -1,9 +1,7 @@
 define "component/example", [], () ->
 
-  class Example
+	class Example
 
-    constructor: (element) ->
-      
-      @carousel = $(element)
-      @carousel.owlCarousel
-        items: 1
+		constructor: (element) ->
+			
+			alert "component is working"
